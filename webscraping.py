@@ -1,5 +1,5 @@
 # load in libraries
-import re
+import regex as re
 
 import requests
 from bs4 import BeautifulSoup as bs
@@ -50,8 +50,23 @@ print(paragraphs)
 
 print("--------------")
 # look for a string
-# import regex
-import regex
+
 
 paragraph = soup.find_all("p", string=re.compile("Some"))
 print(paragraph)
+
+print("--------------")
+# find string with different capitalization
+headers = soup.find_all("h2", string=re.compile("(H|h)eader"))
+print(headers)
+
+print("********************--------------SELECT as in CSS-------------*******************")
+
+select = soup.select("p")
+print(select)
+print("--------------")
+content = soup.select("div p")
+print(content)
+print("--------------")
+paragraphs = soup.select("h2 ~ p")
+print(paragraphs)
