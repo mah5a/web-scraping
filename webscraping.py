@@ -1,4 +1,6 @@
 # load in libraries
+import re
+
 import requests
 from bs4 import BeautifulSoup as bs
 
@@ -6,7 +8,7 @@ from bs4 import BeautifulSoup as bs
 r = requests.get("https://keithgalli.github.io/web-scraping/example.html")
 
 # convert to a beautifulsoup object
-soup = bs(r.content)
+soup = bs(r.content, features="html.parser")
 # print out our HTML
 print(soup.prettify())
 
@@ -29,4 +31,27 @@ print("--------------")
 # pass in attributes to find/find_all
 paragraph = soup.find_all("p", attrs={"id": "paragraph-id"})
 print(paragraph)
+# you can nest calls
+print("--------------")
+body = soup.find("body")
+print(body)
+print("--------------")
+# look for div in body
+div = body.find("div")
+print(div)
+print("--------------")
+# find header in div
+header = div.find("h1")
+print(header)
+print("--------------")
+# search for EXACT specific string ex: some
+paragraphs = soup.find_all("p", string="Some bold text")
+print(paragraphs)
 
+print("--------------")
+# look for a string
+# import regex
+import regex
+
+paragraph = soup.find_all("p", string=re.compile("Some"))
+print(paragraph)
