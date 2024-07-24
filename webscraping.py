@@ -79,3 +79,5 @@ paragraphs = soup.select("body > p")
 print(paragraphs)
 print("--------------")
 
+for par in paragraphs:
+    print(par.select("i"))
