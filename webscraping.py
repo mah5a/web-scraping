@@ -81,3 +81,8 @@ print("--------------")
 
 for par in paragraphs:
     print(par.select("i"))
+
+print("--------------")
+# Grab with specific property
+m = soup.select("[align = middle]")
+print(m)
