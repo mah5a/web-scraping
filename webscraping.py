@@ -105,5 +105,11 @@ print("--------------")
 paragraphs = soup.select("p#paragraph-id")
 print(paragraphs[0]['id'])
 print("-------Path Syntax-------")
-
+link = soup.find("a")
+print(link)
+print(link['href'])
+print("--------")
+print(soup.body.find("div"))
+print("------------parent, sibling, child----------")
+print(soup.body.find("div").find_next_siblings())
 
