@@ -74,7 +74,7 @@ print("--------------")
 bold_text = soup.select("p#paragraph-id b")
 print(bold_text)
 print("--------------")
-print("direct dicendent of a paragraph")
+print("direct decedent of a paragraph")
 paragraphs = soup.select("body > p")
 print(paragraphs)
 print("--------------")
@@ -82,7 +82,28 @@ print("--------------")
 for par in paragraphs:
     print(par.select("i"))
 
-print("--------------")
+print("------Align=middle--------")
 # Grab with specific property
 m = soup.select("[align = middle]")
 print(m)
+print("----Use .string ----------")
+header = soup.find("h2")
+print(header)
+print(header.string)
+
+print("---If multiple child elements use getText()-----------")
+div = soup.find("div")
+print(div.prettify())
+print(div.string)
+print(div.getText())
+
+print("------Get a specific property from an element--------")
+link = soup.find("a")
+print(link)
+print(link["href"])
+print("--------------")
+paragraphs = soup.select("p#paragraph-id")
+print(paragraphs[0]['id'])
+print("-------Path Syntax-------")
+
+
