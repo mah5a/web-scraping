@@ -105,5 +105,6 @@ print("--------------")
 paragraphs = soup.select("p#paragraph-id")
 print(paragraphs[0]['id'])
 print("-------Path Syntax-------")
-
+path = soup.body.div.h1.string
+print(path)
 
