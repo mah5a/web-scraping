@@ -116,9 +116,14 @@ from bs4 import BeautifulSoup as bs
 print("+++++++++++++++++++++Let's Test Our Knowledge++++++++++++++++")
 # load the web page content
 r = requests.get("https://keithgalli.github.io/web-scraping/webpage.html")
+# r = requests.get("https://github.com/mah5a?tab=overview&from=2024-08-01&to=2024-08-05")
 
 # convert to a beautifulsoup object
 webpage = bs(r.content, features="html.parser")
 # print out our HTML
 print(webpage.prettify())
 
+print("-----FIND SOCIAL LINKS-----")
+links = webpage.select('ul.socials a')
+actual_links = [link['href'] for link in links]
+print(actual_links)
