@@ -123,7 +123,17 @@ webpage = bs(r.content, features="html.parser")
 # print out our HTML
 print(webpage.prettify())
 
-print("-----FIND SOCIAL LINKS-----")
+print("-----FIND SOCIAL LINKS:Method 1: SELECT->UL-----")
 links = webpage.select('ul.socials a')
 actual_links = [link['href'] for link in links]
 print(actual_links)
+print("-----FIND SOCIAL LINKS:Method 2: FIND-----")
+ulist = webpage.find("ul", attrs={"class": "socials"})
+links = ulist.find_all('a')
+print(links)
+actual_links = [link['href'] for link in links]
+print(actual_links)
+
+print("-----FIND SOCIAL LINKS:Method 1: SELECT->li-----")
+links = webpage.select("li.social a")
+print(links)
