@@ -137,3 +137,7 @@ print(actual_links)
 print("-----FIND SOCIAL LINKS:Method 1: SELECT->li-----")
 links = webpage.select("li.social a")
 print(links)
+
+print("-----webscrape a Table on a web page-----")
+table = webpage.select("table.hockey-stats")[0]
+print(table)
