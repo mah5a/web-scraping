@@ -153,10 +153,15 @@ table_rows = table.find("tbody").find_all("tr")
 l = []
 for tr in table_rows:
     td = tr.find_all("td")
-    row = [str(tr.string).strip() for tr in td]
+    row = [str(tr.get_text()).strip() for tr in td]
     l.append(row)
 
 print(l)
 
 df = pd.DataFrame(l, columns=column_names)
 print(df.head())
+
+df.loc[df['Team'] != "Did not play"]
+
+
+
