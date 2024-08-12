@@ -149,3 +149,11 @@ print(columns)
 
 column_names = [c.string for c in columns]
 print(column_names)
+table_rows = table.find("tbody").find_all("tr")
+l=[]
+for tr in table_rows:
+    td = tr.find_all("td")
+    row = [tr.string for tr in td]
+    l.append(row)
+
+print(l)
