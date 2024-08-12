@@ -3,6 +3,7 @@ import regex as re
 
 import requests
 from bs4 import BeautifulSoup as bs
+import pandas as pd
 
 # # load the web page content
 # r = requests.get("https://keithgalli.github.io/web-scraping/example.html")
@@ -140,7 +141,6 @@ print(links)
 
 print("------------------webscrape a Table on a web page--------------------")
 
-
 table = webpage.select("table.hockey-stats")[0]
 print(table)
 
@@ -150,10 +150,13 @@ print(columns)
 column_names = [c.string for c in columns]
 print(column_names)
 table_rows = table.find("tbody").find_all("tr")
-l=[]
+l = []
 for tr in table_rows:
     td = tr.find_all("td")
-    row = [tr.string for tr in td]
+    row = [str(tr.string).strip() for tr in td]
     l.append(row)
 
 print(l)
+
+df = pd.DataFrame(l, columns=column_names)
+print(df.head())
