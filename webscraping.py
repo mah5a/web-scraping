@@ -162,6 +162,9 @@ df = pd.DataFrame(l, columns=column_names)
 print(df.head())
 
 df.loc[df['Team'] != "Did not play"]
+print("grab all fun facts that have the word --id--")
+facts = webpage.select("ul.fun-facts li")
+print(facts)
 
 
 
