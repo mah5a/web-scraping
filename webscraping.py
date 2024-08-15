@@ -163,8 +163,10 @@ print(df.head())
 
 df.loc[df['Team'] != "Did not play"]
 print("grab all fun facts that have the word --id--")
+
+import re
+
 facts = webpage.select("ul.fun-facts li")
 print(facts)
-
-
-
+facts_with_is = [fact.find(string=re.compile("is")) for fact in facts]
+print(facts_with_is)
