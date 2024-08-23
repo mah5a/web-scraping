@@ -170,3 +170,6 @@ facts = webpage.select("ul.fun-facts li")
 print(facts)
 facts_with_is = [fact.find(string=re.compile("is")) for fact in facts]
 print(facts_with_is)
+print("Getting rid of the NONEs--> list comprehension")
+facts_with_is = [fact for fact in facts_with_is if fact]
+print(facts_with_is)
