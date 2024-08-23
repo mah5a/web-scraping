@@ -179,5 +179,18 @@ facts_with_is = [fact.find_parent() for fact in facts_with_is if fact]
 print (facts_with_is)
 print("get the whole sentence")
 facts_with_is = [fact.find_parent().get_text() for fact in facts_with_is if fact]
-
 print(facts_with_is)
+
+print("download images on the webpage")
+# pip install requests
+url = "https://keithgalli.github.io/web-scraping/"
+r = requests.get(url+"webpage.html")
+webpage =bs(r.content)
+images= webpage.select("div.row div.column img")
+image_url = images[0]['src']
+print(image_url)
+full_url = url+image_url
+
+image_data = requests.get(full_url).content
+with open('kale_como.jpg','wb') as handler:
+    handler.write((image_data))
