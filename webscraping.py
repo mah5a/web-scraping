@@ -173,3 +173,11 @@ print(facts_with_is)
 print("Getting rid of the NONEs--> list comprehension")
 facts_with_is = [fact for fact in facts_with_is if fact]
 print(facts_with_is)
+
+print("with elements")
+facts_with_is = [fact.find_parent() for fact in facts_with_is if fact]
+print (facts_with_is)
+print("get the whole sentence")
+facts_with_is = [fact.find_parent().get_text() for fact in facts_with_is if fact]
+
+print(facts_with_is)
