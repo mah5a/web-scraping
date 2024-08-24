@@ -209,3 +209,13 @@ for f in relative_file:
     bs_page = bs(page.content)
     print(bs_page.body.prettify())
     break
+
+for f in relative_file:
+    full_file_url = url+f
+    # load the page
+    page = requests.get(full_file_url)
+    bs_page = bs(page.content)
+    secret_word_element = bs_page.find("p",attrs={"id":"secret-word"})
+    secret_word = secret_word_element.string
+    print(secret_word)
+
