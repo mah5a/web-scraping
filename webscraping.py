@@ -198,3 +198,6 @@ with open('kale_como.jpg', 'wb') as handler:
 print("web scrape files")
 files = webpage.select("div.block a")
 print(files)
+
+relative_file = [f['href'] for f in files]
+print(relative_file)
