@@ -201,3 +201,11 @@ print(files)
 
 relative_file = [f['href'] for f in files]
 print(relative_file)
+url = "https://keithgalli.github.io/web-scraping/"
+for f in relative_file:
+    full_file_url = url+f
+    # load the page
+    page = requests.get(full_file_url)
+    bs_page = bs(page.content)
+    print(bs_page.body.prettify())
+    break
